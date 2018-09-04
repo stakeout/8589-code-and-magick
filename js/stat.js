@@ -1,16 +1,16 @@
 'use strict';
 
-var CLOUD_WIDTH = 420; //ширина облака
-var CLOUD_HEIGHT = 270; //высота облака
-var CLOUD_POSITION_X = 100; //горизонтальная координата облака
-var CLOUD_POSITION_Y = 10; //вертикальная координата облака
-var STEP = 10; //смещение тени относительно координат облака
-var FONT_STEP = 15; //расстояние между строк
-var HISTOGRAM_HEIGHT = 150; //высота гистограммы
-var BAR_WIDTH = 40; //ширина столбика
-var BAR_STEP = 50; //расстояние между столбиками
+var CLOUD_WIDTH = 420; // ширина облака
+var CLOUD_HEIGHT = 270; // высота облака
+var CLOUD_POSITION_X = 100; // горизонтальная координата облака
+var CLOUD_POSITION_Y = 10; // вертикальная координата облака
+var STEP = 10; // смещение тени относительно координат облака
+var FONT_STEP = 15; // расстояние между строк
+var HISTOGRAM_HEIGHT = 150; // высота гистограммы
+var BAR_WIDTH = 40; // ширина столбика
+var BAR_STEP = 50; // расстояние между столбиками
 
-//Функция отрисовки облака
+// Функция отрисовки облака
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.beginPath();
@@ -25,7 +25,7 @@ var renderCloud = function (ctx, x, y, color) {
   ctx.fill();
 };
 
-//Функция нахождения максимального элемента в массиве
+// Функция нахождения максимального элемента в массиве
 
 var getMaxElement = function (array) {
   var maxElement = 0;
