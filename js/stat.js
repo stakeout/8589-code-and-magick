@@ -12,8 +12,8 @@ var BAR_STEP = 50; // расстояние между столбиками
 var TEXT = 'Ура! Вы победили!';
 var TEXT_TITLE = 'Список результатов:';
 var TEXT_COLOR = '#000';
-var RED = 'rgba(255, 0, 0, 1)';
-var RGBA_BLACK_0_7 = 'rgba(0, 0, 0, .7)';
+var RED_COLOR = 'rgba(255, 0, 0, 1)';
+var CLOUD_SHADOW = 'rgba(0, 0, 0, .7)';
 var WHITE_COLOR = '#fff';
 
 // Функция отрисовки облака
@@ -67,7 +67,7 @@ var renderBar = function (ctx, color, name, time, index, barHeight, x) {
 
 window.renderStatistics = function (ctx, names, times) {
 
-  renderCloud(ctx, CLOUD_POSITION_X + STEP, CLOUD_POSITION_Y + STEP, RGBA_BLACK_0_7);
+  renderCloud(ctx, CLOUD_POSITION_X + STEP, CLOUD_POSITION_Y + STEP, CLOUD_SHADOW);
 
   renderCloud(ctx, CLOUD_POSITION_X, CLOUD_POSITION_Y, WHITE_COLOR);
 
@@ -79,7 +79,7 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     var barHeight = HISTOGRAM_HEIGHT * times[i] / maxTime;
-    var barColor = names[i] === 'Вы' ? RED : getBlueShade();
+    var barColor = names[i] === 'Вы' ? RED_COLOR : getBlueShade();
     renderBar(ctx, barColor, names[i], Math.floor(times[i]), i, barHeight, CLOUD_POSITION_X);
   }
 };
