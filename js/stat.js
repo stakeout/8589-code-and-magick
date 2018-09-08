@@ -12,9 +12,9 @@ var BAR_STEP = 50; // расстояние между столбиками
 var TEXT = 'Ура! Вы победили!';
 var TEXT_TITLE = 'Список результатов:';
 var TEXT_COLOR = '#000';
-var RED_COLOR = 'rgba(255, 0, 0, 1)';
-var CLOUD_SHADOW = 'rgba(0, 0, 0, .7)';
-var WHITE_COLOR = '#fff';
+var USER_COLOR = 'rgba(255, 0, 0, 1)';
+var CLOUD_SHADOW_COLOR = 'rgba(0, 0, 0, .7)';
+var CLOUD_COLOR = '#fff';
 
 // Функция отрисовки облака
 var renderCloud = function (ctx, x, y, color) {
@@ -50,7 +50,6 @@ var renderText = function (ctx, color, font, textBaseline, text, x, y) {
 
 var getBlueShade = function () {
   return 'rgba(0, 0, 255, ' + Math.random() + ')';
-
 };
 
 // Функция отрисовки столбиков
@@ -67,9 +66,9 @@ var renderBar = function (ctx, color, name, time, index, barHeight, x) {
 
 window.renderStatistics = function (ctx, names, times) {
 
-  renderCloud(ctx, CLOUD_POSITION_X + STEP, CLOUD_POSITION_Y + STEP, CLOUD_SHADOW);
+  renderCloud(ctx, CLOUD_POSITION_X + STEP, CLOUD_POSITION_Y + STEP, CLOUD_SHADOW_COLOR);
 
-  renderCloud(ctx, CLOUD_POSITION_X, CLOUD_POSITION_Y, WHITE_COLOR);
+  renderCloud(ctx, CLOUD_POSITION_X, CLOUD_POSITION_Y, CLOUD_COLOR);
 
   renderText(ctx, TEXT_COLOR, '16px PT Mono', 'top', TEXT, CLOUD_POSITION_X + STEP * 3, CLOUD_POSITION_Y + STEP * 1.5);
 
@@ -79,7 +78,7 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     var barHeight = HISTOGRAM_HEIGHT * times[i] / maxTime;
-    var barColor = names[i] === 'Вы' ? RED_COLOR : getBlueShade();
+    var barColor = names[i] === 'Вы' ? USER_COLOR : getBlueShade();
     renderBar(ctx, barColor, names[i], Math.floor(times[i]), i, barHeight, CLOUD_POSITION_X);
   }
 };
